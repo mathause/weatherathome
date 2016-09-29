@@ -1,5 +1,3 @@
-
-
 import os
 import glob
 import copy
@@ -9,6 +7,7 @@ import subprocess
 from subprocess import call
 from subprocess import Popen
 
+import xarray as xr
 # '*ga.pd*': regional_daily
 # '*ga.pe*': regional_monthly
 # '*ma.pc*': global_monthly 
@@ -229,7 +228,7 @@ class _wah_one(object):
 
     def _load(self, standard_name, which):
         # get the name of the .nc file in the folder
-        fN = glob(os.path.join(self.path, which))
+        fN = glob.glob(os.path.join(self.path, which))
         if len(fN) != 1:
             print(fN)
             raise AssertionError('more than one or zero filenames')
