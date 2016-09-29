@@ -23,9 +23,7 @@ def unzip(folder, pattern='*.zip', file_pattern='*ga.pe*'):
 
     Example
     -------
-    # unzip_wah('/path/w_at_h/hadam3p_eu_2014', '*_7.zip', '*ga.pe*');
-
-
+    # wah.unzip('/path/w_at_h/hadam3p_eu_2014', '*_7.zip', '*ga.pe*');
 
     """
 

@@ -238,28 +238,3 @@ class _wah_one(object):
         var = ds.data_vars.keys()
         assert len(var) == 1
         return ds[var[0]]
-
-
-
-# fNs = [glob.glob(fn[i].path + '/*ga.pe*')[0] for i in range(6, 30)]
-# ds = [xr.open_dataset(fN) for fN in fNs]
-
-# ds_sm = ds[0].filter_by_attrs(standard_name='liquid_water_content_of_soil_layer')
-# ds_sm = ds_sm[ds_sm.data_vars.keys()[0]]
-# landmask = ds_sm.notnull().squeeze()
-
-# dss = [d.filter_by_attrs(standard_name='precipitation_flux') for d in ds]
-# dss = [ds[ds.data_vars.keys()[0]] for ds in dss]
-
-# ds = xr.concat(dss, 'time1')
-
-
-
-# mask = regionmask.defined_regions.srex.mask(ds, lon_name='global_longitude0', lat_name='global_latitude0', wrap_lon=True)
-
-# wgt = ds.cos_wgt('global_latitude0')
-
-# print ds.where(mask==12).squeeze().average(('latitude0', 'longitude0'), weights=wgt).mean() * 3600 * 24 * 92
-# print ds.where((mask==12) & landmask).squeeze().average(('latitude0', 'longitude0'), weights=wgt).mean() * 3600 * 24 * 92
-
-
