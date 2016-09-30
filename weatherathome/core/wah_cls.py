@@ -228,13 +228,16 @@ class _wah_one(object):
 
     def _load(self, standard_name, which):
         # get the name of the .nc file in the folder
-        fN = glob.glob(os.path.join(self.path, which))
+        fN_raw = os.path.join(self.path, which)
+        fN = glob.glob(fN_raw)
         if len(fN) != 1:
             print(fN)
+            print(fN_raw)
             raise AssertionError('more than one or zero filenames')
-            
+
         ds = xr.open_dataset(fN[0])
         ds = ds.filter_by_attrs(standard_name=standard_name)
         var = ds.data_vars.keys()
         assert len(var) == 1
         return ds[var[0]]
+        
